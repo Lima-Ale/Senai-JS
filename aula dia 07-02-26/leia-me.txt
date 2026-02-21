@@ -1,0 +1,346 @@
+instalar code runner, live server, dark dracula theme
+ctrl + alt + n para executar o código no terminal usando o code runner
+
+
+
+## **Básicos 01**
+
+1. **Adicione um sufixo às palavras**
+    
+    Dado um array de palavras, use `map` para adicionar o sufixo `"!!!"` a cada uma.
+    
+    ```jsx
+    const palavras = ["olá", "mundo", "javascript"];
+    const enfatizadas = palavras.map(palavra => palavra + "!!!");
+    console.log(enfatizadas); // ["olá!!!", "mundo!!!", "javascript!!!"]
+    
+    ```
+    
+2. Adicione o prefixo “Colaborador: “ às palavras
+    
+    ```jsx
+    const nomes = ["ana", "bruno", "carla"];
+    const nomesMaiusculos = ??? // Colocar o código aqui
+    console.log(nomesMaiusculos); // ["Colaborador: ana", "Colaborador: bruno", "Colaborador: carla"]
+    ```
+    
+
+---
+
+## **Intermediários** (Aplicações Práticas)
+
+1. **Extraindo nomes de objetos**
+    
+    Dado um array de objetos representando pessoas, crie um novo array contendo apenas os nomes.
+    
+    ```jsx
+    const pessoas = [
+      { nome: "João", idade: 25 },
+      { nome: "Maria", idade: 30 },
+      { nome: "Carlos", idade: 28 }
+    ];
+    const nomes = pessoas.map(pessoa => pessoa.nome);
+    console.log(nomes); // ["João", "Maria", "Carlos"]
+    
+    ```
+    
+2. **Calculando áreas de círculos**
+    
+    Você tem um array de raios e precisa calcular as áreas dos círculos correspondentes (Área = π * r²).
+    
+    ```jsx
+    const raios = [3, 5, 7];
+    const areas = raios.map(raio => Math.PI * Math.pow(raio, 2));
+    console.log(areas); // [28.27, 78.54, 153.94] (valores aproximados)
+    
+    ```
+    
+3. **Formatando preços**
+    
+    Você tem um array de preços em reais e deseja formatá-los como string no formato `R$ xx,xx`.
+    
+    ```jsx
+    const precos = [10, 25.5, 3.99, 7];
+    const precosFormatados = precos.map(preco => `R$ ${preco.toFixed(2).replace('.', ',')}`);
+    console.log(precosFormatados); // ["R$ 10,00", "R$ 25,50", "R$ 3,99", "R$ 7,00"]
+    
+    ```
+    
+
+---
+
+## **Avançados** (Desafios Mais Complexos)
+
+1. **Transformando notas escolares**
+    
+    Dado um array de notas de alunos (0 a 100), converta para um conceito (`A`, `B`, `C`, `D`, `F`).
+    
+    ```jsx
+    const notas = [95, 82, 74, 63, 49];
+    const conceitos = notas.map(nota => {
+      if (nota >= 90) return "A";
+      if (nota >= 80) return "B";
+      if (nota >= 70) return "C";
+      if (nota >= 60) return "D";
+      return "F";
+    });
+    console.log(conceitos); // ["A", "B", "C", "D", "F"]
+    
+    ```
+    
+2. **Gerando slugs para URLs**
+    
+    Você tem um array de títulos de artigos e quer convertê-los em slugs para URLs (tudo minúsculo e espaços substituídos por `-`).
+    
+    ```jsx
+    const titulos = ["Aprenda JavaScript", "Método Map em JS", "Dicas de Programação"];
+    const slugs = titulos.map(titulo => titulo.toLowerCase().replace(/\s+/g, "-"));
+    console.log(slugs); // ["aprenda-javascript", "metodo-map-em-js", "dicas-de-programacao"]
+    
+    ```
+    
+3. **Transformando array de objetos**
+    
+    Você tem um array de produtos e deseja retornar um novo array apenas com nomes e preços formatados.
+    
+    ```jsx
+    const produtos = [
+      { id: 1, nome: "Celular", preco: 1999.99 },
+      { id: 2, nome: "Notebook", preco: 3999.99 },
+      { id: 3, nome: "Tablet", preco: 899.99 }
+    ];
+    const catalogo = produtos.map(produto => ({
+      nome: produto.nome,
+      precoFormatado: `R$ ${produto.preco.toFixed(2).replace('.', ',')}`
+    }));
+    console.log(catalogo);
+    /*
+    [
+      { nome: "Celular", precoFormatado: "R$ 1999,99" },
+      { nome: "Notebook", precoFormatado: "R$ 3999,99" },
+      { nome: "Tablet", precoFormatado: "R$ 899,99" }
+    ]
+    */
+    ```
+
+
+
+
+    ## **Básicos 02**
+
+1️⃣ **Filtrar números maiores que 10**
+
+```jsx
+const numeros = [5, 8, 12, 15, 3, 20, 7];
+const maioresQueDez = numeros.filter(numero => numero > 10);
+console.log(maioresQueDez); // Deve retornar [12, 15, 20]
+
+```
+
+2️⃣ **Filtrar nomes que começam com a letra 'A'**
+
+```jsx
+const nomes = ["Ana", "João", "Amanda", "Carlos", "Arthur", "Beatriz"];
+const nomesComA = nomes.filter(nome => nome.startsWith("A"));
+console.log(nomesComA); // Deve retornar ["Ana", "Amanda", "Arthur"]
+
+// Documentação do startsWith em https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith
+```
+
+---
+
+## **Intermediários**
+
+3️⃣ **Filtrar produtos com preço menor que R$ 50**
+
+```jsx
+const produtos = [
+  { nome: "Teclado", preco: 120 },
+  { nome: "Mouse", preco: 40 },
+  { nome: "Fone de ouvido", preco: 80 },
+  { nome: "Caderno", preco: 30 }
+];
+const produtosBaratos = // Use filter aqui
+console.log(produtosBaratos); // Deve retornar [{ nome: "Mouse", preco: 40 }, { nome: "Caderno", preco: 30 }]
+
+```
+
+4️⃣ **Filtrar pessoas com idade maior ou igual a 18 anos**
+
+```jsx
+const pessoas = [
+  { nome: "Carlos", idade: 17 },
+  { nome: "Mariana", idade: 22 },
+  { nome: "João", idade: 15 },
+  { nome: "Fernanda", idade: 30 }
+];
+const maioresDeIdade = // Use filter aqui
+console.log(maioresDeIdade); // Deve retornar [{ nome: "Mariana", idade: 22 }, { nome: "Fernanda", idade: 30 }]
+
+```
+
+5️⃣ **Filtrar palavras que tenham mais de 5 letras**
+
+```jsx
+const palavras = ["sol", "mar", "montanha", "rio", "cachoeira", "nuvem"];
+const palavrasLongas = // Use filter aqui
+console.log(palavrasLongas); // Deve retornar ["montanha", "cachoeira"]
+
+```
+
+---
+
+## **Avançados**
+
+6️⃣ **Filtrar usuários ativos em um sistema**
+
+```jsx
+const usuarios = [
+  { nome: "Ana", ativo: true },
+  { nome: "Carlos", ativo: false },
+  { nome: "Beatriz", ativo: true },
+  { nome: "João", ativo: false }
+];
+const usuariosAtivos = // Use filter aqui
+console.log(usuariosAtivos); // Deve retornar [{ nome: "Ana", ativo: true }, { nome: "Beatriz", ativo: true }]
+
+```
+
+7️⃣ **Filtrar pedidos entregues de uma lista de pedidos**
+
+```jsx
+const pedidos = [
+  { id: 1, status: "pendente" },
+  { id: 2, status: "entregue" },
+  { id: 3, status: "cancelado" },
+  { id: 4, status: "entregue" }
+];
+const pedidosEntregues = // Use filter aqui
+console.log(pedidosEntregues); // Deve retornar [{ id: 2, status: "entregue" }, { id: 4, status: "entregue" }]
+
+```
+
+8️⃣ **Filtrar alunos aprovados (nota >= 7)**
+
+```jsx
+const alunos = [
+  { nome: "Paula", nota: 8 },
+  { nome: "Miguel", nota: 5 },
+  { nome: "Camila", nota: 9 },
+  { nome: "Lucas", nota: 6 }
+];
+const alunosAprovados = // Use filter aqui
+console.log(alunosAprovados); // Deve retornar [{ nome: "Paula", nota: 8 }, { nome: "Camila", nota: 9 }]
+```
+
+## **Básicos 03**
+
+1️⃣ Buscar o nome “Amanda”
+
+```jsx
+const nomes = ["João", "Carlos", "Amanda", "Arthur", "Beatriz"];
+const amanda = nomes.find(nome => nome == "Amanda");
+console.log(amanda); // Deve retornar "Amanda"
+
+```
+
+2️⃣ Buscar o usuário que o ID é igual a 2
+
+```jsx
+const listaDeUsuarios = [
+  { id: 1, nome: "Alice" },
+  { id: 2, nome: "Bruno" },
+  { id: 3, nome: "Carla" }
+];
+
+const usuarioEncontrado = listaDeUsuarios.find(usuario => usuario.id == 2);
+
+console.log(usuarioEncontrado); 
+// Deve retornar { id: 2, nome: "Bruno" }
+
+```
+
+---
+
+## **Intermediários**
+
+4️⃣ **Buscar o produto de nome “Fone de ouvido”**
+
+```jsx
+const produtos = [
+  { nome: "Teclado", preco: 120 },
+  { nome: "Mouse", preco: 40 },
+  { nome: "Fone de ouvido", preco: 80 },
+  { nome: "Caderno", preco: 30 }
+];
+const produtoBuscado = // Use find aqui
+console.log(produtoBarato); // Deve retornar { nome: "Fone de ouvido", preco: 80 }
+
+```
+
+5️⃣ **Descobrir uma pessoa com idade maior ou igual a 18 anos**
+
+```jsx
+const pessoas = [
+  { nome: "Carlos", idade: 17 },
+  { nome: "Mariana", idade: 22 },
+  { nome: "João", idade: 15 },
+  { nome: "Fernanda", idade: 30 }
+];
+const maiorDeIdade = // Use find aqui
+console.log(maiorDeIdade); // Deve retornar { nome: "Mariana", idade: 22 }
+
+```
+
+6️⃣ **Identificar uma palavra com mais de 5 letras**
+
+```jsx
+const palavras = ["sol", "mar", "montanha", "rio", "lua", "nuvem"];
+const palavraLonga = // Use find aqui
+console.log(palavraLonga); // Deve retornar "montanha"
+```
+
+---
+
+## **Avançados**
+
+7️⃣ **Selecionar um usuário ativo no sistema**
+
+```jsx
+const usuarios = [
+  { nome: "Carlos", ativo: false },
+  { nome: "Ana", ativo: true },
+  { nome: "Beatriz", ativo: false},
+  { nome: "João", ativo: false }
+];
+const usuarioAtivo = // Use find aqui
+console.log(usuarioAtivo); // Deve retornar { nome: "Ana", ativo: true }
+
+```
+
+8️⃣ **Procurar um pedido com status "entregue"**
+
+```jsx
+const pedidos = [
+  { id: 1, status: "pendente" },
+  { id: 2, status: "entregue" },
+  { id: 3, status: "cancelado" },
+  { id: 4, status: "cancelado" }
+];
+const pedidoEntregue = // Use find aqui
+console.log(pedidoEntregue); // Deve retornar { id: 2, status: "entregue" }
+
+```
+
+9️⃣ **Achar um aluno aprovado (nota >= 7)**
+
+```jsx
+const alunos = [
+  { nome: "Miguel", nota: 5 },
+  { nome: "Paula", nota: 8 },
+  { nome: "Camila", nota: 9 },
+  { nome: "Lucas", nota: 6 }
+];
+const alunoAprovado = // Use find aqui
+console.log(alunoAprovado); // Deve retornar { nome: "Paula", nota: 8 }
+```
