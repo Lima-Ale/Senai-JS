@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Idade</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <h1> Calcular e classificar conforme a Idade</h1>
+        <hr>
+        
+        <section>
+            <h2>Cadastro de Informações</h2>
+            <form method="post" id="form-idade">
+                <div class="campo-form">
+                    <laber for="nome">Nome</laber>
+                    <input type="text" id="nome" placeholder="Insira seu nome completo"
+                </div></br>
+
+                <div class="campo-form">
+                    <label for="dia">Dia Nascimento </label>
+                    <input type="number" id="dia" min="1" max="31" placeholder="Informe o dia de nascimento (1 a 31)"
+                </div></br>
+                
+                <div class="campo-form">
+                    <label for="mes">MêsNascimento </label>
+                    <input type="number" id="mes" min="1" max="12" placeholder="Informe o mês de nascimento (1 a 12)"
+                </div></br>
+
+                <div class="campo-form">
+                    <label for="ano">Ano Nascimento</label>
+                    <input type="number" id="ano" min="1900" max="2026" placeholder="Informe o ano de Nascimento (de 1926 até o ano atual)"
+                </div></br>
+                
+                <div class="conjunto-botoes"></br>
+                    <button type="submit">Calcular</button>
+                    <button type="reset">Limpar Formulário</button>
+                </br>    
+                </div>
+            </form>
+        </section>
+        
+        <section>
+            <h2>Usuários Cadastrados</h2>
+            <table>
+                <caption>Tabela de Usuários</caption>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Dia Nasc</th>
+                        <th>Mês Nasc </th>
+                        <th>Ano Nasc</th>
+                        <th>Classificação</th>
+                        <th>Data de Cadastro</th>
+                    </tr>                    
+                </thead>
+                <tbody id="corpo-tabela"></tbody>
+            </table></br>
+            <button class="botao-tabela" onclick="deletarRegistro()">Limpar Registros</button>
+        </section>
+
+    </main>
+</body>
+</html>
